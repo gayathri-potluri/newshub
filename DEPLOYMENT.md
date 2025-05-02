@@ -94,6 +94,18 @@ After the first deployment:
      @tailwind components;
      @tailwind utilities;
      ```
+6. If you see a "Route does not match the required types of a Next.js Route" error related to authOptions:
+   - Move your NextAuth configuration to a separate file (e.g., src/lib/auth.js)
+   - Import the configuration in your route handler:
+     ```js
+     // src/app/api/auth/[...nextauth]/route.js
+     import NextAuth from "next-auth";
+     import { authOptions } from "@/lib/auth";
+     
+     const handler = NextAuth(authOptions);
+     
+     export { handler as GET, handler as POST };
+     ```
 
 ### MongoDB Connection Issues
 
