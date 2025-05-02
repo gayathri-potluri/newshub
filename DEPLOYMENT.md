@@ -77,6 +77,7 @@ After the first deployment:
 1. Check the build logs for errors
 2. Ensure all dependencies are properly listed in package.json
 3. Verify that your Next.js version is compatible with your code
+4. If you see an error about `@next-auth/mongodb-adapter` not being found, make sure you're importing from `@auth/mongodb-adapter` instead, as this is the package specified in your dependencies
 
 ### MongoDB Connection Issues
 
