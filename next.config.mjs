@@ -2,6 +2,9 @@
 const nextConfig = {
   images: {
     domains: ['images.unsplash.com'],
+    // Add Vercel image optimization
+    loader: 'default',
+    unoptimized: process.env.NODE_ENV !== 'production',
   },
   // Enable static exports for Vercel
   output: 'standalone',
@@ -46,6 +49,10 @@ const nextConfig = {
       },
     ];
   },
+  // Vercel optimization settings
+  swcMinify: true,
+  reactStrictMode: true,
+  poweredByHeader: false,
 };
 
 export default nextConfig; 
