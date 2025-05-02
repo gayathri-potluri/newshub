@@ -78,6 +78,22 @@ After the first deployment:
 2. Ensure all dependencies are properly listed in package.json
 3. Verify that your Next.js version is compatible with your code
 4. If you see an error about `@next-auth/mongodb-adapter` not being found, make sure you're importing from `@auth/mongodb-adapter` instead, as this is the package specified in your dependencies
+5. If you see a "Can't resolve 'tailwindcss'" error, ensure your Tailwind CSS configuration is correct:
+   - Update postcss.config.js to use the correct plugin format:
+     ```js
+     module.exports = {
+       plugins: {
+         tailwindcss: {},
+         autoprefixer: {},
+       },
+     }
+     ```
+   - Make sure globals.css uses the proper Tailwind directives:
+     ```css
+     @tailwind base;
+     @tailwind components;
+     @tailwind utilities;
+     ```
 
 ### MongoDB Connection Issues
 
