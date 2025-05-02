@@ -1,5 +1,5 @@
 {
-  "buildCommand": "next build",
+  "buildCommand": "npm run build",
   "framework": "nextjs",
   "outputDirectory": ".next",
   "git": {
@@ -7,8 +7,20 @@
       "main": true
     }
   },
-  "installCommand": "npm install",
+  "installCommand": "npm install --force",
   "env": {
-    "NEXT_PUBLIC_BASE_URL": "https://${VERCEL_URL}"
-  }
+    "NEXT_PUBLIC_BASE_URL": "https://${VERCEL_URL}",
+    "NODE_ENV": "production"
+  },
+  "headers": [
+    {
+      "source": "/(.*)\\.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
 } 
